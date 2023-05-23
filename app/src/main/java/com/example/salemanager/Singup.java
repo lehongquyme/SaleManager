@@ -33,7 +33,7 @@ public class Singup extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     String base64;
     Button btncreate;
-    EditText edtname, edtpass, edtrepass, edtphone, edtgmail;
+    EditText edtname, edtpass, edtrepass, edtphone, edtgmail,edtadmin;
     LinearLayout layout;
     ImageView imageView;
     private Uri mImageUri;
@@ -50,6 +50,7 @@ public class Singup extends AppCompatActivity {
         edtrepass = findViewById(R.id.ed_repassword);
         edtphone = findViewById(R.id.ed_phone);
         edtgmail = findViewById(R.id.ed_gmail);
+        edtadmin = findViewById(R.id.ed_admin);
         imageView = findViewById(R.id.id_showimg);
         btncreate.setOnClickListener(v -> {
             createAccount();
@@ -109,6 +110,7 @@ public class Singup extends AppCompatActivity {
         String userName = edtname.getText().toString();
         String phone = edtphone.getText().toString();
         String gmail = edtgmail.getText().toString();
+        String admin = edtadmin.getText().toString();
         String pass = edtpass.getText().toString();
         String repass = edtrepass.getText().toString();
         if (userName.isEmpty() || phone.isEmpty() || gmail.isEmpty() || pass.isEmpty() || repass.isEmpty()) {
@@ -129,6 +131,7 @@ public class Singup extends AppCompatActivity {
                         databaseReference.child("user").child(phone).child("pass").setValue(pass);
                         databaseReference.child("user").child(phone).child("repass").setValue(repass);
                         databaseReference.child("user").child(phone).child("gmail").setValue(gmail);
+                        databaseReference.child("user").child(phone).child("admin").setValue(admin);
 
 
                         startActivity(new Intent(Singup.this, Login.class));
