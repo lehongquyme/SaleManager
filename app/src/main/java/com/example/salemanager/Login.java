@@ -6,8 +6,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,38 +56,61 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> {
             String phone = edtphone.getText().toString();
             String pass = edtpass.getText().toString();
-
-            if (phone.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, "Please,Input pass or phone", Toast.LENGTH_SHORT).show();
-            } else {
-                databaseReference.child("user").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.hasChild(phone)) {
-                            String getPass = snapshot.child(phone).child("pass").getValue(String.class);
-                            if (getPass.equals(pass)) {
-                                Toast.makeText(Login.this, "Successfully login", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(Login.this, Singup.class);// Truyền một Boolean
-                                intent.putExtra("phone", phone);
-                                startActivity(intent);
-                                finish();
+            if (isNetworkConnected(this)) {
+                // Thiết bị đang kết nối mạng
+                if (phone.isEmpty() || pass.isEmpty()) {
+                    Toast.makeText(this, "Please,Input pass or phone", Toast.LENGTH_SHORT).show();
+                } else {
+                    databaseReference.child("user").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(phone)) {
+                                String getPass = snapshot.child(phone).child("pass").getValue(String.class);
+                                if (getPass.equals(pass)) {
+                                    Toast.makeText(Login.this, "Successfully login", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Login.this, Home.class);// Truyền một Boolean
+                                    intent.putExtra("phone", phone);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(Login.this, "Input pass fail", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                Toast.makeText(Login.this, "Input pass fail", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "Input phone fail", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                            Toast.makeText(Login.this, "Input phone fail", Toast.LENGTH_SHORT).show();
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
+                }
+             } else {
+                Toast.makeText(this, "Please,Connect Internet", Toast.LENGTH_SHORT).show();
+
             }
         });
+
         tvsignup.setOnClickListener(v -> {
             startActivity(new Intent(Login.this, Singup.class));
         });
+
+
     }
+
+    private boolean isNetworkConnected(Context connect) {
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) connect.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager!= null) {
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
+
