@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".Login">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+<ImageView
+    android:layout_width="0dp"
+    android:layout_weight="3"
+    android:src="@drawable/logo"
+
+    android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="7"
+            android:background="@drawable/bgtittle"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="SALE MANAGER"
+            android:layout_height="60dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signin"
+        android:text="Đăng Nhập"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_margin="50dp"
+        android:gravity="center"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ed_phone"
+        android:background="@drawable/boderedt"
+        android:hint="Số điện thoại"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/ic_baseline_phone_24"
+        android:drawablePadding="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ed_password"
+        android:background="@drawable/boderedt"
+        android:hint="Mật khẩu"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/ic_key"
+        android:drawablePadding="20dp"
+        android:inputType="textPassword"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <CheckBox
+            android:id="@+id/chk_reLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.3"
+            android:text="Lưu thông tin"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+
+            android:buttonTint="@color/white"/>
+        <TextView
+            android:id="@+id/tv_signUp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.7"
+            android:text="Đăng Ký Tài Khoản !"
+            android:gravity="right|center"
+            android:textSize="17sp"
+            android:textColor="#08E9F1"
+            />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng Nhập"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textSize="17sp"
+
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2.3">
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="1dp"
+        android:background="@color/teal_200"
+        android:layout_marginVertical="20dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="or"
+            android:textColor="@color/black"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="1dp"
+        android:background="@color/teal_200"
+        android:layout_marginVertical="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginVertical="10dp"
+        android:layout_width="match_parent"
+        android:weightSum="10"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/boderlogin"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:src="@drawable/gg"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:text="Kết nối với Google"
+            android:gravity="center"
+            android:layout_weight="8"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginVertical="10dp"
+        android:layout_width="match_parent"
+        android:weightSum="10"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/boderlogin"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:src="@drawable/fb"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:text="Kết nối với Facebook"
+            android:gravity="center"
+            android:layout_weight="8"/>
+    </LinearLayout>
+</LinearLayout>

@@ -10,7 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SaleManager">
         <activity
-            android:name=".MainActivity"
+            android:name=".Singup"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
