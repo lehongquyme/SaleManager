@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -33,9 +35,9 @@ public class Singup extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     String base64;
     Button btncreate;
+    TextView tv_rules;
     EditText edtname, edtpass, edtrepass, edtphone, edtgmail,edtadmin;
-    LinearLayout layout;
-    ImageView imageView;
+    ImageView imageView,img_rule;
     private Uri mImageUri;
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://salemanager-2000f-default-rtdb.firebaseio.com");
@@ -52,6 +54,16 @@ public class Singup extends AppCompatActivity {
         edtgmail = findViewById(R.id.ed_gmail);
         edtadmin = findViewById(R.id.ed_admin);
         imageView = findViewById(R.id.id_showimg);
+        img_rule = findViewById(R.id.img_rules);
+        tv_rules = findViewById(R.id.tv_rules);
+        img_rule.setOnClickListener(view -> {
+            if(tv_rules.getVisibility() == View.GONE){
+                tv_rules.setVisibility(View.VISIBLE);
+            }else {
+                tv_rules.setVisibility(View.GONE);
+
+            }
+        });
         btncreate.setOnClickListener(v -> {
             createAccount();
 
