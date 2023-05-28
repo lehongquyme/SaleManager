@@ -14,6 +14,7 @@ import com.example.salemanager.fragment.FragmentTrangChu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Home extends AppCompatActivity {
+
     ActionBar toolbar;
     private long Pressed;
     Toast mToast;
@@ -74,4 +75,5 @@ public class Home extends AppCompatActivity {
         }
         Pressed = System.currentTimeMillis();
     }
+
 }

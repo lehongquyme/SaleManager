@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
     Button btnLogin;
     TextView tvsignup, tvforgot;
     EditText edtphone, edtpass;
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://salemanager-2000f-default-rtdb.firebaseio.com");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://salemanager-777dd-default-rtdb.firebaseio.com");
     private final int RECORD = 1;
 
     @Override
