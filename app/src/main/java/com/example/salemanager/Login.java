@@ -39,6 +39,7 @@ public class Login extends AppCompatActivity {
         edtphone = findViewById(R.id.ed_phone);
         edtpass = findViewById(R.id.ed_password);
         tvforgot = findViewById(R.id.chk_reLogin);
+        //  
         int permisstion_write_storage = ContextCompat.checkSelfPermission(
                 this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int permisstion_read_storage = ContextCompat.checkSelfPermission(
@@ -53,7 +54,10 @@ public class Login extends AppCompatActivity {
         tvforgot.setOnClickListener(v -> {
             startActivity(new Intent(this, Singup.class));
         });
-        btnLogin.setOnClickListener(v -> {
+        btnLogin.setOnClickListener(v -> {   Toast.makeText(Login.this, "Successfully login", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Login.this, Home.class);// Truyền một Boolean
+            startActivity(intent);
+            finish();
             String phone = edtphone.getText().toString();
             String pass = edtpass.getText().toString();
             if (isNetworkConnected(this)) {
