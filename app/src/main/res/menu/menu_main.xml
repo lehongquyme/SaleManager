@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item  android:title="Thiết Lập Bán Hàng" >
+<menu android:checkableBehavior="single">
+    <item android:id="@+id/loaisp"
+        android:title="Loại Sản Phẩm"
+        android:icon="@drawable/ic_baseline_auto_awesome_mosaic_24"/>
+    <item android:id="@+id/hangsp"
+        android:title="Hãng Sản Phẩm"
+        android:icon="@drawable/ic_hang"/>
+    <item android:id="@+id/sanpham"
+        android:title=" Sản Phẩm"
+        android:icon="@drawable/ic_sanpham"/>
+    <item android:id="@+id/khachhang"
+        android:title="Khách Hàng"
+        android:icon="@drawable/ic_people"/>
+    <item android:id="@+id/nhapsp"
+        android:title="Nhập Sản Phẩm"
+        android:icon="@drawable/ic_outbox"/>
+
+</menu>
+    </item>
+    <item android:title="Khác">
+    <menu>
+        <item android:id="@+id/thongtin"
+            android:title="Thông Tin"
+            android:icon="@drawable/ic_info"/>
+        <item android:id="@+id/exit"
+            android:title="Thoát"
+            android:icon="@drawable/ic_input"/>
+
+    </menu></item>
+</menu>

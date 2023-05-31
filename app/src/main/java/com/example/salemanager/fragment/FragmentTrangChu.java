@@ -2,6 +2,7 @@ package com.example.salemanager.fragment;
 
 import android.os.Bundle;
 
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -10,8 +11,10 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toolbar;
 
 import com.example.salemanager.R;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,8 @@ import model.SlideShowBanner;
 
 
 public class FragmentTrangChu extends Fragment {
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
     private ViewPager2 mViewPager2; // Khai bao doi tuong viewpager 2
     private CircleIndicator3 mCircleIndicator3; // khai bao doi tuong circle indicator 3
@@ -55,6 +60,10 @@ public class FragmentTrangChu extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_trang_chu, container, false);
         // Inflate the layout for this fragment
+        drawerLayout = view.findViewById(R.id.drawerlayout);
+        drawerLayout = view.findViewById(R.id.nav_menu);
+
+
         mViewPager2 = view.findViewById(R.id.viewpager_2);// anh xa viewpager 2
         mCircleIndicator3 =view.findViewById(R.id.circle_indicator_3);
         mslidSlideShowBanners = getListSiSlideShowBanners(); // gan doi tuong list slideshow vao ham add list slideshow
