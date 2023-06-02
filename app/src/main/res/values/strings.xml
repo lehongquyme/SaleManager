@@ -12,6 +12,19 @@
             "1.7 Yêu cầu của bên thứ ba. Khách hàng chịu trách nhiệm phản hồi Yêu cầu của bên thứ ba. Trong phạm vi luật pháp cho phép và theo điều khoản Yêu cầu của bên thứ ba, Google sẽ: (a) thông báo ngay cho Khách hàng khi nhận được Yêu cầu của bên thứ ba; (b) tuân thủ các yêu cầu hợp lý của Khách hàng về nỗ lực của Khách hàng trong việc phản đối Yêu cầu của bên thứ ba; và (c) cung cấp cho Khách hàng thông tin hoặc công cụ được yêu cầu để Khách hàng phản hồi lại Yêu cầu của bên thứ ba. Trước tiên, khách hàng sẽ tự tìm cách thu thập thông tin được yêu cầu để phản hồi lại Yêu cầu của bên thứ ba và sẽ chỉ liên hệ với Google nếu Khách hàng không thể thu thập được thông tin đó theo cách hợp lý.\n" +
             "1.8 Chính sách sử dụng và giới hạn. Khách hàng được phép sử dụng 10 tài khoản người dùng cuối. Khách hàng phải tuân thủ mọi chính sách sử dụng và giới hạn bổ sung liên quan đến việc sử dụng Dịch vụ như được yêu cầu bởi Google theo thời gian.\n" +
             "1.9 Người dùng cuối. Khách hàng đồng ý rằng Người dùng cuối sẽ tuân thủ Chính sách về hoạt động sử dụng được chấp nhập và Điều khoản người dùng cuối.</string>
+    <string name="smstext">Sử dụng các nhóm quyền Tin nhắn SMS hoặc Nhật ký cuộc gọi
+Để giúp bảo vệ người dùng và dữ liệu của họ, Google Play hạn chế việc sử dụng quyền truy cập thông tin nhạy cảm hoặc có mức độ rủi ro cao, bao gồm cả các nhóm quyền Tin nhắn SMS hoặc Nhật ký cuộc gọi.
+
+Nếu ứng dụng của bạn không đủ điều kiện được truy cập vào Nhật ký cuộc gọi hoặc Tin nhắn SMS, thì bạn phải xoá những quyền đó khỏi tệp kê khai của ứng dụng. Bài viết này cung cấp thông tin chi tiết về các phương án thay thế đảm bảo tuân thủ chính sách.
+
+Nếu cho rằng ứng dụng của mình đáp ứng các yêu cầu của chính sách sử dụng hoặc đủ điều kiện được coi là trường hợp ngoại lệ, bạn phải trực tiếp khai báo mọi quyền Nhật ký cuộc gọi hoặc Tin nhắn SMS qua Google Play Console.
+
+Những ứng dụng không đáp ứng được yêu cầu của chính sách hoặc không gửi Biểu mẫu khai báo quyền có thể sẽ bị xoá khỏi Google Play.
+
+Thời điểm sử dụng những quyền truy cập này
+Bạn chỉ được sử dụng các quyền Nhật ký cuộc gọi hoặc Tin nhắn SMS khi ứng dụng của bạn thuộc trường hợp sử dụng được phép và chỉ dùng các quyền đó để cung cấp chức năng cốt lõi thiết yếu của ứng dụng.
+
+Hãy coi chức năng cốt lõi là mục đích chính của ứng dụng. Ứng dụng của bạn có thể có một hoặc một nhóm chức năng cốt lõi. Khi không có chức năng cốt lõi này, ứng dụng sẽ bị hỏng hoặc không sử dụng được. Hãy đảm bảo rằng phần mô tả ứng dụng của bạn nêu bật và quảng bá được (các) chức năng cốt lõi của ứng dụng. </string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- TODO: Remove or change this placeholder text -->

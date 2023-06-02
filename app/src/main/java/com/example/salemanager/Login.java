@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
     Button btnLogin;
     TextView tvsignup, tvforgot;
     EditText edtphone, edtpass;
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://salemanager-777dd-default-rtdb.firebaseio.com");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://salemanager-2000f-default-rtdb.firebaseio.com");
     private final int RECORD = 1;
 
     @Override
@@ -38,8 +38,8 @@ public class Login extends AppCompatActivity {
         tvsignup = findViewById(R.id.tv_signUp);
         edtphone = findViewById(R.id.ed_phone);
         edtpass = findViewById(R.id.ed_password);
-        tvforgot = findViewById(R.id.chk_reLogin);
-        //  
+        tvforgot = findViewById(R.id.quenmk);
+        //
         int permisstion_write_storage = ContextCompat.checkSelfPermission(
                 this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int permisstion_read_storage = ContextCompat.checkSelfPermission(
@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE, Manifest.permission.READ_EXTERNAL_STORAGE}, RECORD);
         }
         tvforgot.setOnClickListener(v -> {
-            startActivity(new Intent(this, Singup.class));
+            startActivity(new Intent(this, Otpsms.class));
         });
         btnLogin.setOnClickListener(v -> {   Toast.makeText(Login.this, "Successfully login", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(Login.this, Home.class);// Truyền một Boolean
