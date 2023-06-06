@@ -1,7 +1,9 @@
 package com.example.salemanager.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
@@ -11,9 +13,11 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toolbar;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.salemanager.R;
+import com.example.salemanager.nav_menu_activity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -25,9 +29,10 @@ import model.SlideShowBanner;
 
 
 public class FragmentTrangChu extends Fragment {
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
 
+  private ImageButton imgButtonNav;
+  NavigationView mNavigationView ;
+  private DrawerLayout mDrawerLayout;
     private ViewPager2 mViewPager2; // Khai bao doi tuong viewpager 2
     private CircleIndicator3 mCircleIndicator3; // khai bao doi tuong circle indicator 3
     private List<SlideShowBanner> mslidSlideShowBanners; // khai bao 1 doi tuong list slideshow
@@ -60,13 +65,21 @@ public class FragmentTrangChu extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_trang_chu, container, false);
         // Inflate the layout for this fragment
-        drawerLayout = view.findViewById(R.id.drawerlayout);
-        drawerLayout = view.findViewById(R.id.nav_menu);
+mDrawerLayout = view.findViewById(R.id.drawer_layout); // drawable layout
+        mNavigationView = view.findViewById(R.id.navigation_view);
 
-
+       imgButtonNav = view.findViewById(R.id.btn_menu_nav); // anh xa image button
         mViewPager2 = view.findViewById(R.id.viewpager_2);// anh xa viewpager 2
         mCircleIndicator3 =view.findViewById(R.id.circle_indicator_3);
         mslidSlideShowBanners = getListSiSlideShowBanners(); // gan doi tuong list slideshow vao ham add list slideshow
+        imgButtonNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+
+
+            }
+        });
         SlideShowbannerAdapter slideApdapter = new SlideShowbannerAdapter(mslidSlideShowBanners); // khoi tao doi tuong slideshown adapter
         mViewPager2.setAdapter(slideApdapter); // set adapter cho pageview 2
         mCircleIndicator3.setViewPager(mViewPager2); // lien ket viewpager 2 voi indicator

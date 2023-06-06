@@ -14,6 +14,13 @@
             "1.9 Người dùng cuối. Khách hàng đồng ý rằng Người dùng cuối sẽ tuân thủ Chính sách về hoạt động sử dụng được chấp nhập và Điều khoản người dùng cuối.</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="nav_loaisp">Loại sản phẩm</string>
+    <string name="nav_hangtxt">Hãng</string>
+    <string name="nav_sptxt">Sản phẩm</string>
+    <string name="nav_khtxt">Khách hàng</string>
+    <string name="nav_nhaphangtxt">Nhập hàng</string>
+    <string name="nav_infotxt">Thông tin</string>
+    <string name="nav_exittxt">Thoát</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

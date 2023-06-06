@@ -3,36 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F4E3"
+    android:background="@color/light_blue_600"
     android:orientation="vertical"
     android:weightSum="4"
     tools:context=".fragment.FragmentHoaDon">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#DBD314"
-    android:orientation="horizontal"
-    android:weightSum="10">
+
     <TextView
-        android:layout_width="0dp"
-        android:layout_weight="8.5"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_gravity="center"
         android:text="Sale Manager"
         android:textSize="30dp" />
-    <Button
-    android:layout_width="0dp"
-    android:layout_weight="1.5"
-    android:layout_height="50dp"
-    android:layout_gravity="center"
-    android:gravity="center"
-        android:id="@+id/menu"
-        android:layout_marginHorizontal="5dp"
-    android:background="@drawable/menu_nav"
 
-    />
-</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -60,14 +42,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:layout_marginVertical="5dp"
                     android:text="hi" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:layout_marginVertical="5dp"
                     android:text="hi" />
             </LinearLayout>
         </LinearLayout>
@@ -92,13 +72,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:layout_marginVertical="5dp"
                     android:text="hi" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="5dp"
                     android:gravity="center"
                     android:text="hi" />
             </LinearLayout>
@@ -127,8 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="20dp"
-                android:paddingVertical="20dp"
+                android:layout_marginVertical="50dp"
                 android:background="@drawable/boderedt"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -145,35 +122,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_marginVertical="5dp"
                         android:text="hi" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginVertical="5dp"
-                        android:text="hi" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginVertical="5dp"
-                        android:text="hi" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
                         android:gravity="center"
                         android:text="hi" />
                 </LinearLayout>
@@ -189,13 +142,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_marginVertical="5dp"
                         android:text="hi" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
+                        android:gravity="center"
+                        android:text="hi" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="hi" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="hi" />
                 </LinearLayout>
@@ -228,7 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="20dp"
+                android:layout_marginVertical="50dp"
                 android:background="@drawable/boderedt"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -244,36 +215,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
                         android:gravity="center"
                         android:text="hi" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginVertical="5dp"
-                        android:text="hi" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
-                        android:gravity="center"
-                        android:text="hi" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
                         android:gravity="center"
                         android:text="hi" />
                 </LinearLayout>
@@ -288,14 +235,32 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
                         android:gravity="center"
                         android:text="hi" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
+                        android:gravity="center"
+                        android:text="hi" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="hi" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="hi" />
                 </LinearLayout>
@@ -327,7 +292,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="20dp"
+                android:layout_marginVertical="50dp"
                 android:background="@drawable/boderedt"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -344,14 +309,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_marginVertical="5dp"
                         android:text="hi" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_marginVertical="5dp"
                         android:text="hi" />
                 </LinearLayout>
 
@@ -366,14 +329,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_marginVertical="5dp"
                         android:text="hi" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_marginVertical="5dp"
                         android:text="hi" />
                 </LinearLayout>
 
@@ -388,14 +349,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_marginVertical="5dp"
                         android:text="hi" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_marginVertical="5dp"
                         android:text="hi" />
                 </LinearLayout>
 
