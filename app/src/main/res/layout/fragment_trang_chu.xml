@@ -14,8 +14,7 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/menu_main"
         android:id="@+id/nav_menu"
-        android:layout_gravity="start
-"
+        android:layout_gravity="start"
         >
 
     </com.google.android.material.navigation.NavigationView>
