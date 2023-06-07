@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--// khai bao cac item trong nav_menu_start-->
+    <group android:checkableBehavior="single">
+
+<item android:id="@+id/nav_loaisp"
+    android:title="@string/nav_loaisp"
+    android:icon="@drawable/loai_sanpham_icon"/>
+    <item
+        android:id="@+id/nav_hang"
+        android:title="@string/nav_hangtxt"
+        android:icon="@drawable/ic_hang"
+
+        />
+<item
+    android:id="@+id/nav_sanpham"
+android:title="@string/nav_sptxt"
+    android:icon="@drawable/ic_sanpham"
+
+    />
+        <item
+            android:id="@+id/nav_khachhang"
+            android:title="@string/nav_khtxt"
+            android:icon="@drawable/khachhang_icon"
+            />
+       <item
+           android:id="@+id/nav_nhap_hang"
+           android:title="@string/nav_nhaphangtxt"
+           android:icon="@drawable/nhaphang_icon"
+           />
+
+</group>
+    <item
+        android:title="Khác">
+        <menu>
+            <item
+                android:id="@+id/nav_info"
+                android:title="@string/nav_infotxt"
+                android:icon="@drawable/ic_info"
+                />
+            <item
+                android:id="@+id/nav_exit"
+                android:title="@string/nav_exittxt"
+                android:icon="@drawable/thoat_icon"
+                />
+        </menu>
+
+    </item>
+</menu>
