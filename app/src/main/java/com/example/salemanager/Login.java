@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
 import android.content.Context;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.salemanager.databinding.FragmentTrangChuBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +29,9 @@ public class Login extends AppCompatActivity {
     Button btnLogin;
     TextView tvsignup, tvforgot;
     EditText edtphone, edtpass;
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://salemanager-2000f-default-rtdb.firebaseio.com");
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://salemanager-2000f-default-rtdb.firebaseio.com/");
+    DatabaseReference myRef = database.getReference("user");
+
     private final int RECORD = 1;
 
     @Override
@@ -52,12 +56,10 @@ public class Login extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE, Manifest.permission.READ_EXTERNAL_STORAGE}, RECORD);
         }
         tvforgot.setOnClickListener(v -> {
-            startActivity(new Intent(this, Otpsms.class));
+            startActivity(new Intent(this, AddSanPham.class));
         });
-        btnLogin.setOnClickListener(v -> {   Toast.makeText(Login.this, "Successfully login", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Login.this, Home.class);// Truyền một Boolean
-            startActivity(intent);
-            finish();
+        btnLogin.setOnClickListener(v -> {
+
             String phone = edtphone.getText().toString();
             String pass = edtpass.getText().toString();
             if (isNetworkConnected(this)) {
@@ -65,7 +67,7 @@ public class Login extends AppCompatActivity {
                 if (phone.isEmpty() || pass.isEmpty()) {
                     Toast.makeText(this, "Please,Input pass or phone", Toast.LENGTH_SHORT).show();
                 } else {
-                    databaseReference.child("user").addListenerForSingleValueEvent(new ValueEventListener() {
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.hasChild(phone)) {
@@ -98,6 +100,7 @@ public class Login extends AppCompatActivity {
 
         tvsignup.setOnClickListener(v -> {
             startActivity(new Intent(Login.this, Singup.class));
+            finish();
         });
 
 

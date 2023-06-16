@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    android:background="#DAAB1E"
+    android:layout_height="match_parent"
+    tools:context=".ChangePass">
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:gravity="center"
+    android:layout_weight="3">
+<ImageView
+    android:layout_width="90dp"
+    android:layout_height="90dp"
+    android:src="@drawable/logo"
+    android:layout_gravity="center"
+/>
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/boderchangepass"
+    android:layout_weight="7">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đổi mật khẩu"
+        android:textSize="30dp"
+        android:layout_marginBottom="50dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/newpassword"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/boderedt"
+        android:hint="Nhập vào mật khẩu mới"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:inputType="textPassword" />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/renewpassword"
+        android:background="@drawable/boderedt"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="10dp"
+        android:hint="Nhập vào mật khẩu mới"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Xác Nhận"
+    android:id="@+id/agree"
+/>
+    <CheckBox
+        android:layout_marginVertical="10dp"
+        android:layout_gravity="start"
+        android:id="@+id/showPasswordCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hiện mật khẩu" />
+
+</LinearLayout>
+</LinearLayout>

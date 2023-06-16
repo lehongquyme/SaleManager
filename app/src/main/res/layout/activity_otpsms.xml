@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="3"
+    android:background="#F9F4E3"
+    android:weightSum="4"
     tools:context=".Otpsms">
 
     <ImageView
@@ -25,41 +26,20 @@
         android:padding="10dp"
         android:src="@drawable/aircraft">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/boderedt"
-            android:orientation="horizontal"
-            android:paddingVertical="10dp"
-            android:weightSum="10">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="+84"
-                android:textSize="20dp" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="50dp"
-                android:background="@color/black" />
 
             <EditText
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="8"
-                android:hint="Nhập vào số điện thoại"
-                android:inputType="phone"
-                android:id="@+id/inputphone"
+                android:hint="Nhập vào gmail"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/boderedt"
+                android:id="@+id/inputgmail"
                 android:maxLines="1"
                 android:padding="10dp" />
 
-        </LinearLayout>
 
         <Button
             android:layout_width="wrap_content"
@@ -67,16 +47,49 @@
             android:layout_marginVertical="20dp"
             android:paddingVertical="10dp"
             android:id="@+id/sendOTP"
-            android:text="Gửi sms"
+            android:text="Gửi "
             android:textSize="20dp" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_weight="1">
-
-
+        android:layout_weight="2">
+        <com.chaos.view.PinView
+            android:id="@+id/firstPinView"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="#FFFFF7"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cursorColor="@color/black"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="45dp"
+            app:itemRadius="4dp"
+            app:itemWidth="45dp"
+            app:lineColor="@color/black"
+            app:lineWidth="2dp"
+            app:viewType="rectangle" />
+        <Button
+            android:id="@+id/signup_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center
+"
+            android:layout_marginTop="25dp"
+            android:background="@color/purple_500"
+            android:text="Confirm"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"

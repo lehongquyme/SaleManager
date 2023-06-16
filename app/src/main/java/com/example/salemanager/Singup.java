@@ -40,8 +40,8 @@ public class Singup extends AppCompatActivity {
     ImageView imageView,img_rule;
     private Uri mImageUri;
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://salemanager-2000f-default-rtdb.firebaseio.com");
-
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://salemanager-2000f-default-rtdb.firebaseio.com/");
+    DatabaseReference myRef = database.getReference("user");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,20 +130,20 @@ public class Singup extends AppCompatActivity {
         } else if (!pass.equals(repass)) {
             Toast.makeText(this, "Please input pass and repass together", Toast.LENGTH_SHORT).show();
         } else {
-            databaseReference.child("user").addListenerForSingleValueEvent(new ValueEventListener() {
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.hasChild(phone)) {
                         Toast.makeText(Singup.this, "Phone is already", Toast.LENGTH_SHORT).show();
                     } else {
-                        databaseReference.child("user").child(phone).child("image").setValue(base64);
+                        myRef.child(phone).child("image").setValue(base64);
 
-                        databaseReference.child("user").child(phone).child("fullname").setValue(userName);
-                        databaseReference.child("user").child(phone).child("phone").setValue(phone);
-                        databaseReference.child("user").child(phone).child("pass").setValue(pass);
-                        databaseReference.child("user").child(phone).child("repass").setValue(repass);
-                        databaseReference.child("user").child(phone).child("gmail").setValue(gmail);
-                        databaseReference.child("user").child(phone).child("admin").setValue(admin);
+                        myRef.child(phone).child("fullname").setValue(userName);
+                        myRef.child(phone).child("phone").setValue(phone);
+                        myRef.child(phone).child("pass").setValue(pass);
+                        myRef.child(phone).child("repass").setValue(repass);
+                        myRef.child(phone).child("gmail").setValue(gmail);
+                        myRef.child(phone).child("admin").setValue(admin);
 
 
                         startActivity(new Intent(Singup.this, Login.class));

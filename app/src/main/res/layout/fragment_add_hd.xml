@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#F9F4E3"
+    android:id="@+id/fragmentHD"
+    android:layout_height="match_parent"
+    tools:context=".fragment.add.AddKH">
+
+    <LinearLayout
+        android:background="#DBD314"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_save" />
+    </LinearLayout>
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/boderedt"
+        android:padding="10dp"
+        android:id="@+id/cpu"
+        android:hint="CPU"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_memory"/>
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/boderedt"
+        android:padding="10dp"
+        android:hint="RAM"
+        android:id="@+id/ram"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_baseline_straighten_24"/>
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/boderedt"
+        android:padding="10dp"
+        android:id="@+id/rom"
+        android:hint="ROM"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_baseline_sd_card_24"/>
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/boderedt"
+        android:padding="10dp"
+        android:hint="HỆ ĐIỀU HÀNH"
+        android:id="@+id/hedieuhanh"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_baseline_laptop_windows_24"/>
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:id="@+id/groupTrangThai"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/rdoHet"
+            android:layout_height="wrap_content"
+            android:text="Đã hết" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:id="@+id/rdoCon"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Còn hàng" />
+
+    </RadioGroup>
+</LinearLayout>

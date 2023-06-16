@@ -9,6 +9,9 @@
     <item android:id="@+id/thongke"
         android:title="@string/thongke"
         android:icon="@drawable/ic_thongke"/>
+    <item android:id="@+id/profile"
+        android:title="@string/thongke"
+        android:icon="@drawable/ic_baseline_person_24"/>
 
 
 
