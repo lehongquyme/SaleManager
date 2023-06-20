@@ -14,9 +14,14 @@
         <entry key="app/src/main/res/drawable/boderspinner.xml" value="0.17" />
         <entry key="app/src/main/res/drawable/ic_baseline_auto_awesome_mosaic_24.xml" value="0.159" />
         <entry key="app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/ic_date.xml" value="0.2105" />
         <entry key="app/src/main/res/drawable/ic_done.xml" value="0.17" />
         <entry key="app/src/main/res/drawable/ic_info.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_location.xml" value="0.2105" />
         <entry key="app/src/main/res/drawable/ic_memory.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_money.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/ic_name.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.2105" />
         <entry key="app/src/main/res/layout/activity_add_san_pham.xml" value="0.217559814453125" />
         <entry key="app/src/main/res/layout/activity_change_pass.xml" value="0.32268218994140624" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.3347630818684896" />
@@ -26,6 +31,7 @@
         <entry key="app/src/main/res/layout/activity_update_san_pham.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_verify.xml" value="0.2740740740740741" />
         <entry key="app/src/main/res/layout/comnication.xml" value="0.13958333333333334" />
+        <entry key="app/src/main/res/layout/fragment_adapter_trang_chu.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_add_h_d.xml" value="0.3734375" />
         <entry key="app/src/main/res/layout/fragment_add_hd.xml" value="0.2101851851851852" />
         <entry key="app/src/main/res/layout/fragment_add_k_h.xml" value="0.359375" />

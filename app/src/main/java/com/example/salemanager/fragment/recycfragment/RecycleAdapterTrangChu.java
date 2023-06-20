@@ -1,13 +1,17 @@
 package com.example.salemanager.fragment.recycfragment;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.wifi.hotspot2.pps.HomeSp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,76 +19,65 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.salemanager.R;
 import com.example.salemanager.fragment.objectfragment.ObjectSP;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.List;
-
-public class RecycleAdapterTrangChu extends RecyclerView.Adapter<RecycleAdapterTrangChu.MyViewHolder> {
-     List<ObjectSP> listsp;
-
-    public RecycleAdapterTrangChu(List<ObjectSP> list) {
-        this.listsp = list;
-    }
 
 
+public class RecycleAdapterTrangChu extends RecyclerView.Adapter<RecycleAdapterTrangChu.ViewHolder> {
+
+        private ArrayList<ObjectSP> mDataList;
+
+        public RecycleAdapterTrangChu(ArrayList<ObjectSP> dataList) {
+            this.mDataList = dataList;
+        }
     @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemsp, parent, false);
-        return new MyViewHolder(view);
-    }
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        ObjectSP sanpham = listsp.get(position);
-        if (sanpham == null) {
-            holder.imgSanPham.setImageResource(R.drawable.aircraft );
-            holder.nameSp.setText("");
-            holder.codeSp.setText("");
-            holder.cpu.setText("");
-            holder.ram.setText("");
-            holder.rom.setText("");
-            holder.priceSP.setText("");
-            return;
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemsp, parent, false);
+            return new ViewHolder(view);
         }
 
-        bytesToImage(holder.imgSanPham, sanpham.getImgSp());
-        holder.nameSp.setText("Tên Sản Phẩm: " + sanpham.getNameSp());
-        holder.codeSp.setText("Mã Sản Phẩm: " + sanpham.getMaSp());
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+            ObjectSP sanpham = mDataList.get(position);
+            if (sanpham == null) {
+                return;
+            }
 
-        holder.cpu.setText("CPU: " + sanpham.getCpu());
-        holder.ram.setText("Ram: " + sanpham.getRam());
-        holder.rom.setText("Rom: " + sanpham.getRom());
-        holder.priceSP.setText("Giá sản phẩm: " + sanpham.getPrice());
-    }
+            holder.nameSp.setText("Tên Sản Phẩm: " + sanpham.getNameSp());
+            holder.codeSp.setText("Mã Sản Phẩm: " + sanpham.getMaSp());
+            holder.cpu.setText("CPU: " + sanpham.getCpu());
+            holder.ram.setText("Ram: " + sanpham.getRam());
+            holder.rom.setText("Rom: " + sanpham.getRom());
+            holder.priceSP.setText("Giá sản phẩm: " + sanpham.getPrice());
+//            bytesToImage(holder.imgSanPham, sanpham.getImgSp());
 
-    @Override
-    public int getItemCount() {
-        if (listsp != null) {
-            return listsp.size();
         }
-        return 0;
-    }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView nameSp, codeSp, cpu, ram, rom, priceSP;
-        ImageView imgSanPham;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imgSanPham = itemView.findViewById(R.id.imgSp);
-            nameSp = itemView.findViewById(R.id.itemtenSp);
-            codeSp = itemView.findViewById(R.id.itemMaSp);
-            cpu = itemView.findViewById(R.id.itemCpu);
-            ram = itemView.findViewById(R.id.itemRam);
-            rom = itemView.findViewById(R.id.itemRom);
-            priceSP = itemView.findViewById(R.id.itemGiaSp);
+        @Override
+        public int getItemCount() {
+            return mDataList.size();
         }
-    }
 
+        public class ViewHolder extends RecyclerView.ViewHolder {
+
+            TextView nameSp, codeSp, cpu, ram, rom, priceSP;
+            ImageView imgSanPham;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                imgSanPham = itemView.findViewById(R.id.imgSp);
+                nameSp = itemView.findViewById(R.id.itemtenSp);
+                codeSp = itemView.findViewById(R.id.itemMaSp);
+                cpu = itemView.findViewById(R.id.itemCpu);
+                ram = itemView.findViewById(R.id.itemRam);
+                rom = itemView.findViewById(R.id.itemRom);
+                priceSP = itemView.findViewById(R.id.itemGiaSp);
+
+            }
+}
     private void bytesToImage(ImageView imageView, String base64String) {
         if (!base64String.isEmpty()) {
             byte[] bytes = new byte[0];
@@ -97,4 +90,3 @@ public class RecycleAdapterTrangChu extends RecyclerView.Adapter<RecycleAdapterT
         }
     }
 }
-

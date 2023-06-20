@@ -34,18 +34,12 @@
           android:layout_marginHorizontal="5dp"
             android:background="@drawable/logosaapp" />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="8.5"
-            android:layout_height="50dp"
-
-            android:layout_gravity="center"
-            android:background="@drawable/bg_edittext"
-            android:gravity="center"
-            android:hint="Tìm kiếm sản phẩm"
-
-
-            />
+       <SearchView
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:layout_weight="8.5"
+           android:id="@+id/search_View"
+           />
 
 
 
@@ -114,12 +108,12 @@
             android:layout_weight="1"/>
         <ImageButton
             android:layout_gravity="center"
-
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/hp"
             android:layout_weight="1"/>
         <ImageButton
+            android:layout_gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/lenovo"
@@ -139,10 +133,10 @@
             android:text="Sản phẩm bán chạy"
             android:textSize="20sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_spBanChay"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:background="#0F72CA" />
     <TextView
         android:layout_width="match_parent"
@@ -150,14 +144,17 @@
         android:text="Sản phẩm mới"
         android:textColor="@color/black"
         android:textSize="20sp" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
 
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:horizontalSpacing="6dp"
-            android:numColumns="2"
-            android:verticalSpacing="6dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_spMoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0F72CA" />
+</ScrollView>
 
 </LinearLayout>
     </ScrollView>

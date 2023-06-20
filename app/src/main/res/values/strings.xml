@@ -37,4 +37,6 @@ Thông tin cửa hàng muốn được bảo mật và quản lý riêng biệt.
 Được sự đồng ý của trường Cao đẳng FPT Polytechnic ngành Công Nghệ Thông
 Tin, cùng sự ủng hộ nhiệt tình và sự động viên giúp đỡ rất tận tình của thầy Nguyễn Quang Hưng, nhóm chúng em đã chọn đề tài: “Ứng dụng quản lý sản phẩm”. Ứng dụng này được thực hiện nhằm đáp ứng yêu cầu: Quản lý và bán máy tính xách tay và máy tính để bàn cho cửa hàng.
 </string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

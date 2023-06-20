@@ -1,21 +1,13 @@
 package com.example.salemanager.fragment;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -23,26 +15,21 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.SearchView;
 
 import com.bumptech.glide.Glide;
-import com.example.salemanager.AddSanPham;
-import com.example.salemanager.Home;
 import com.example.salemanager.R;
 import com.example.salemanager.fragment.add.AddHD;
 import com.example.salemanager.fragment.add.AddKH;
 import com.example.salemanager.fragment.add.AddSp;
 import com.example.salemanager.fragment.objectfragment.ObjectSP;
-import com.example.salemanager.fragment.objectfragment.ObjectUser;
 import com.example.salemanager.fragment.recycfragment.RecycleAdapterTrangChu;
-import com.google.android.material.navigation.NavigationView;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,36 +42,37 @@ import java.util.Base64;
 import java.util.List;
 
 import apdapter.SlideShowbannerAdapter;
-import de.hdodenhof.circleimageview.CircleImageView;
 import me.relex.circleindicator.CircleIndicator3;
 import model.SlideShowBanner;
 
 
 public class FragmentTrangChu extends Fragment {
     String img;
-    RecyclerView recyclerView;
-    RecycleAdapterTrangChu adapter;
-    ArrayList<ObjectSP>  list = new ArrayList<ObjectSP>();
+     RecyclerView recyclerView,recyclerView1;
+     FirebaseRecyclerAdapter adapter,adapter1;
+    ArrayList<ObjectSP> list;
+    SearchView searchView;
     Button btnmenu;
     FrameLayout frameLayout;
     Fragment fragment;
     private AddSp fragmentAddSp;
     private AddKH fragmentAddKH;
     private AddHD fragmentAddHD;
-
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://salemanager-2000f-default-rtdb.firebaseio.com/");
+    DatabaseReference reference = database.getReference("comnication").child("product");
+    DatabaseReference reference1 = database.getReference("comnication").child("product");
     private ViewPager2 mViewPager2; // Khai bao doi tuong viewpager 2
     private CircleIndicator3 mCircleIndicator3; // khai bao doi tuong circle indicator 3
     private List<SlideShowBanner> mslidSlideShowBanners; // khai bao 1 doi tuong list slideshow
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private  Runnable mrunRunnable = new Runnable() {
+    private Runnable mrunRunnable = new Runnable() {
         @Override
         public void run() {
             int currentposotion = mViewPager2.getCurrentItem();
-            if(currentposotion == mslidSlideShowBanners.size()-1){ // neu =  anh cuoi cung
+            if (currentposotion == mslidSlideShowBanners.size() - 1) { // neu =  anh cuoi cung
                 mViewPager2.setCurrentItem(0); // mview pager 2 = anh dau tien
 
-            }
-            else {
+            } else {
                 mViewPager2.setCurrentItem(currentposotion + 1); // nguoc lai thi chuyen den anh tiep theo
             }
         }
@@ -98,14 +86,83 @@ public class FragmentTrangChu extends Fragment {
         View view = inflater.inflate(R.layout.fragment_trang_chu, container, false);
         // Inflate the layout for this fragment
         recyclerView = view.findViewById(R.id.rcv_spBanChay);
+        recyclerView1 = view.findViewById(R.id.rcv_spMoi);
         mViewPager2 = view.findViewById(R.id.viewpager_2);// anh xa viewpager 2
-
         mCircleIndicator3 = view.findViewById(R.id.circle_indicator_3);
 
-        mViewPager2 = view.findViewById(R.id.viewpager_2);// anh xa viewpager 2
-        mCircleIndicator3 =view.findViewById(R.id.circle_indicator_3);
-        mslidSlideShowBanners = getListSiSlideShowBanners(); // gan doi tuong list slideshow vao ham add list slideshow
+        searchView = view.findViewById(R.id.search_View);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+        GridLayoutManager layoutManager1 = new GridLayoutManager(getContext(), 2);
+        recyclerView1.setLayoutManager(layoutManager1);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView1.addItemDecoration(dividerItemDecoration);
+        list = new ArrayList<ObjectSP>();
 
+        mslidSlideShowBanners = getListSiSlideShowBanners(); // gan doi tuong list slideshow vao ham add list slideshow
+        if (searchView != null) {
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    seach(s);
+                    return true;
+                }
+            });
+        }
+reference.addValueEventListener(new ValueEventListener() {
+    @Override
+    public void onDataChange(@NonNull DataSnapshot snap)  {
+        ArrayList<ObjectSP> dataList = new ArrayList<>();
+        for(DataSnapshot snapshot : snap.getChildren()) {
+            ObjectSP data = snapshot.getValue(ObjectSP.class);
+            dataList.add(data);
+        }
+        RecycleAdapterTrangChu adapter = new RecycleAdapterTrangChu(dataList);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError error) {
+
+    }
+});
+        Query query = reference1.orderByChild("giaTienSanPham");
+query.addValueEventListener(new ValueEventListener() {
+    @Override
+    public void onDataChange(@NonNull DataSnapshot snap)  {
+        ArrayList<ObjectSP> dataList = new ArrayList<>();
+        for(DataSnapshot snapshot : snap.getChildren()) {
+            ObjectSP data = snapshot.getValue(ObjectSP.class);
+            if (data.getTinhtrang()=="Mới")
+            dataList.add(data);
+        }
+        RecycleAdapterTrangChu adapter = new RecycleAdapterTrangChu(dataList);
+        recyclerView1.setAdapter(adapter);
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError error) {
+
+    }
+});
+
+
+
+
+        int spanCount = 2; // số cột trong Gridview
+
+
+//        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), spanCount);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setAdapter(adapter);
         SlideShowbannerAdapter slideApdapter = new SlideShowbannerAdapter(mslidSlideShowBanners); // khoi tao doi tuong slideshown adapter
         mViewPager2.setAdapter(slideApdapter); // set adapter cho pageview 2
         mCircleIndicator3.setViewPager(mViewPager2); // lien ket viewpager 2 voi indicator
@@ -114,7 +171,7 @@ public class FragmentTrangChu extends Fragment {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 mHandler.removeCallbacks(mrunRunnable); // neu runable cu dang chay thi lan mo app tiep theo se xoa di va tao moi
-                mHandler.postDelayed(mrunRunnable,3000); //set handle moi va set thoi gian chuyen anh
+                mHandler.postDelayed(mrunRunnable, 3000); //set handle moi va set thoi gian chuyen anh
 
             }
         });
@@ -134,9 +191,12 @@ public class FragmentTrangChu extends Fragment {
         super.onStart();
 
 
-
-
     }
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
     private void bytesToImage(ImageView imageView, String base64String) {
         if (!base64String.isEmpty()) {
             byte[] bytes = new byte[0];
@@ -148,8 +208,16 @@ public class FragmentTrangChu extends Fragment {
             Glide.with(this).load(decodedByte).into(imageView);
         }
     }
-
-
+    private void seach(String str) {
+        ArrayList<ObjectSP> mylist = new ArrayList<>();
+        for (ObjectSP nt : list) {
+            if (nt.getNameSp().toLowerCase().contains(str.toLowerCase())) {
+                mylist.add(nt);
+            }
+        }
+        RecycleAdapterTrangChu myAdapter = new RecycleAdapterTrangChu(mylist);
+        recyclerView.setAdapter(myAdapter);
+    }
 
     private List<SlideShowBanner> getListSiSlideShowBanners() {
         List<SlideShowBanner> list = new ArrayList<>();
@@ -166,5 +234,7 @@ public class FragmentTrangChu extends Fragment {
 
         return list;
     }
- }
+
+
+}
 

@@ -30,56 +30,53 @@
         android:layout_width="match_parent"
         android:background="@drawable/boderedt"
         android:padding="10dp"
-        android:id="@+id/cpu"
-        android:hint="CPU"
+        android:id="@+id/maHD"
+        android:hint="Mã Hóa Đơn"
         android:layout_margin="5dp"
-        android:drawableLeft="@drawable/ic_memory"/>
+        android:drawableLeft="@drawable/ic_name"/>
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@drawable/boderedt"
         android:padding="10dp"
-        android:hint="RAM"
-        android:id="@+id/ram"
+        android:hint="Ngày nhập hóa đơn"
+        android:id="@+id/ngaynhap"
         android:layout_margin="5dp"
-        android:drawableLeft="@drawable/ic_baseline_straighten_24"/>
+        android:drawableLeft="@drawable/ic_date"/>
+    <Spinner
+        android:id="@+id/spinnerHD"
+        android:padding="15dp"
+        android:backgroundTint="@color/black"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@drawable/boderedt"
         android:padding="10dp"
-        android:id="@+id/rom"
-        android:hint="ROM"
+        android:id="@+id/soluong"
+        android:hint="Số lượng"
         android:layout_margin="5dp"
-        android:drawableLeft="@drawable/ic_baseline_sd_card_24"/>
+        android:drawableLeft="@drawable/ic_baseline_add_shopping_cart_24"/>
+
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@drawable/boderedt"
         android:padding="10dp"
-        android:hint="HỆ ĐIỀU HÀNH"
-        android:id="@+id/hedieuhanh"
+        android:hint="Đơn Giá"
+        android:id="@+id/dongia"
         android:layout_margin="5dp"
-        android:drawableLeft="@drawable/ic_baseline_laptop_windows_24"/>
-    <RadioGroup
-        android:orientation="horizontal"
+        android:drawableLeft="@drawable/ic_money"/>
+    <EditText
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/groupTrangThai"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:id="@+id/rdoHet"
-            android:layout_height="wrap_content"
-            android:text="Đã hết" />
-
-        <RadioButton
-            android:layout_width="0dp"
-            android:id="@+id/rdoCon"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Còn hàng" />
-
-    </RadioGroup>
+        android:background="@drawable/boderedt"
+        android:padding="10dp"
+        android:hint="Thành Tiền"
+        android:id="@+id/thanhtien"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_money"/>
 </LinearLayout>

@@ -5,12 +5,12 @@ import java.util.Map;
 
 public class ObjectSP {
 
-      String imgSp, nameSp, maSp, cpu, ram, rom, price;
+      String imgSp, nameSp, maSp, cpu, ram, rom, price,tinhtrang;
 
     public ObjectSP() {
     }
 
-    public ObjectSP(String imgSp, String nameSp, String maSp, String cpu, String ram, String rom, String price) {
+    public ObjectSP(String imgSp, String nameSp, String maSp, String cpu, String ram, String rom, String price,String tinhtrang) {
         this.imgSp = imgSp;
         this.nameSp = nameSp;
         this.maSp = maSp;
@@ -18,6 +18,7 @@ public class ObjectSP {
         this.ram = ram;
         this.rom = rom;
         this.price = price;
+        this.tinhtrang =tinhtrang;
     }
 
     public String getImgSp() {
@@ -76,5 +77,10 @@ public class ObjectSP {
         this.price = price;
     }
 
-
+    public String getTinhtrang() {
+        return tinhtrang;
+    }
+    public void setTinhtrang(String tinhtrang) {
+        this.tinhtrang = tinhtrang;
+    }
 }

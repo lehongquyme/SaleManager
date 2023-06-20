@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:hint="Nhập vào gmail"
+                android:hint="Nhập vào số điện thoại"
                 android:inputType="textEmailAddress"
                 android:background="@drawable/boderedt"
                 android:id="@+id/inputgmail"

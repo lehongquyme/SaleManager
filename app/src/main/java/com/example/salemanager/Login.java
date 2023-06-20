@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.VIBRATE, Manifest.permission.READ_EXTERNAL_STORAGE}, RECORD);
         }
         tvforgot.setOnClickListener(v -> {
-            startActivity(new Intent(this, AddSanPham.class));
+            startActivity(new Intent(this, Otpsms.class));
         });
         btnLogin.setOnClickListener(v -> {
 
