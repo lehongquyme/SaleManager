@@ -117,7 +117,6 @@ public class Home extends AppCompatActivity {
             @SuppressLint("NewApi")
             public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
                 ObjectUser infor = snapshot.getValue(ObjectUser.class);
-                Toast.makeText(Home.this, infor.getFullname(), Toast.LENGTH_SHORT).show();
 //                emailUser.setText(infor.getGmail());
 //                nameUser.setText(infor.getFullname());
 //                phoneUser.setText(infor.getPhone());

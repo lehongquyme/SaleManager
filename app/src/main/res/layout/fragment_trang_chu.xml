@@ -78,19 +78,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/aser"
+            android:id="@+id/btnacer"
             android:layout_weight="1"/>
         <ImageButton
             android:layout_width="0dp"
+            android:id="@+id/btnasus"
             android:layout_height="wrap_content"
             android:src="@drawable/asus"
             android:layout_weight="1"/>
         <ImageButton
             android:layout_width="0dp"
+            android:id="@+id/btndell"
             android:layout_height="wrap_content"
             android:src="@drawable/dell"
             android:layout_weight="1"/>
         <ImageButton
             android:layout_width="0dp"
+            android:id="@+id/btnthink"
             android:layout_height="wrap_content"
             android:src="@drawable/thinkpad"
             android:layout_weight="1"/>
@@ -102,18 +106,20 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_gravity="center"
-
+            android:id="@+id/btnmac"
             android:layout_height="wrap_content"
             android:src="@drawable/mac"
             android:layout_weight="1"/>
         <ImageButton
             android:layout_gravity="center"
             android:layout_width="0dp"
+            android:id="@+id/btnhp"
             android:layout_height="wrap_content"
             android:src="@drawable/hp"
             android:layout_weight="1"/>
         <ImageButton
             android:layout_gravity="center"
+            android:id="@+id/btnlenovo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/lenovo"
@@ -122,6 +128,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/msi"
+            android:id="@+id/btnmsi"
             android:layout_gravity="center"
             android:layout_weight="1"/>
     </LinearLayout>

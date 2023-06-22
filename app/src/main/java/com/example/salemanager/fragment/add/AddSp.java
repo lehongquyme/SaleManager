@@ -12,6 +12,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,7 @@ import android.widget.Toast;
 import com.example.salemanager.Login;
 import com.example.salemanager.R;
 import com.example.salemanager.Singup;
+import com.example.salemanager.fragment.FragmentTrangChu;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,7 +52,8 @@ import java.util.Base64;
 public class AddSp extends Fragment {
     private static final int PICK_IMAGE = 1;
     EditText maSp, tenSp, giaTien, cpu, ram, rom, hdh, manHinh, cardMh, dlp, tl, mt;
-    String maSanPham, tenSanPham, giaTienSanPham, cpuSanPham, ramSanPham, romSanPham, hdhSanPham, manHinhSanPham, cardMhSanPham, dlpSanPham, tlSanPham, mtSanPham;
+    String maSanPham, tenSanPham,mtSanPham,cardMhSanPham;
+    int giaTienSanPham, cpuSanPham, ramSanPham, romSanPham, hdhSanPham, manHinhSanPham,dlpSanPham,tlSanPham;
     String base64;
     ImageView imageView, imgSave;
     private Uri mImageUri;
@@ -205,20 +209,19 @@ public class AddSp extends Fragment {
     void createProduct() {
         maSanPham = maSp.getText().toString();
         tenSanPham = tenSp.getText().toString();
-        giaTienSanPham = giaTien.getText().toString();
-        cpuSanPham = cpu.getText().toString();
-        ramSanPham = ram.getText().toString();
-        romSanPham = rom.getText().toString();
-        hdhSanPham = hdh.getText().toString();
-        manHinhSanPham = manHinh.getText().toString();
+        giaTienSanPham = Integer.parseInt(giaTien.getText().toString());
+        cpuSanPham = Integer.parseInt(cpu.getText().toString());
+        ramSanPham = Integer.parseInt(ram.getText().toString());
+        romSanPham = Integer.parseInt(rom.getText().toString());
+        hdhSanPham = Integer.parseInt(hdh.getText().toString());
+        manHinhSanPham = Integer.parseInt(manHinh.getText().toString());
         cardMhSanPham = cardMh.getText().toString();
-        dlpSanPham = dlp.getText().toString();
-        tlSanPham = tl.getText().toString();
+        dlpSanPham = Integer.parseInt(dlp.getText().toString());
+        tlSanPham = Integer.parseInt(tl.getText().toString());
         mtSanPham = mt.getText().toString();
 
 
-        if (maSanPham.isEmpty() || tenSanPham.isEmpty() || giaTienSanPham.isEmpty() || cpuSanPham.isEmpty() || ramSanPham.isEmpty() || romSanPham.isEmpty() || hdhSanPham.isEmpty() || manHinhSanPham.isEmpty() || cardMhSanPham.isEmpty() || dlpSanPham.isEmpty() || tlSanPham.isEmpty()
-        ) {
+        if (maSanPham.isEmpty() || tenSanPham.isEmpty()  ||cardMhSanPham.isEmpty()) {
             Toast.makeText(getContext(), "Please input inforMain", Toast.LENGTH_SHORT).show();
         } else {
             myRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -248,7 +251,11 @@ public class AddSp extends Fragment {
 
 
                         getFragmentManager().popBackStack();
-
+                        FragmentManager fragmentManager = getFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.add(R.id.linearProfile, new FragmentTrangChu());
+                        transaction.addToBackStack("myFragmentStack");
+                        transaction.commit();
                     }
                 }
 

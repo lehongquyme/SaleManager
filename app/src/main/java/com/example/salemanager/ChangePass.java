@@ -20,36 +20,40 @@ public class ChangePass extends AppCompatActivity {
     EditText repasswordEditText,passwordEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+         passwordEditText = findViewById(R.id.newpassword);
+         repasswordEditText = findViewById(R.id.renewpassword);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pass);
-        passwordEditText = findViewById(R.id.newpassword);
-        repasswordEditText = findViewById(R.id.renewpassword);
+//        showPasswordCheckBox.setOnCheckedChangeListener((compoundButton, b) -> {
+////            if (b) {
+////                // Hiển thị password
+////                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+////                passwordEditText.setTransformationMethod(null);
+////                repasswordEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+////                repasswordEditText.setTransformationMethod(null);
+////            } else {
+////                // Ẩn password
+////                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+////                passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+////                repasswordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+////                repasswordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+////            }
+//        });
+
+
+}
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         agree = findViewById(R.id.agree);
         showPasswordCheckBox = findViewById(R.id.showPasswordCheckBox);
-        showPasswordCheckBox.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (b) {
-                // Hiển thị password
-                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT);
-                passwordEditText.setTransformationMethod(null);
-                repasswordEditText.setInputType(InputType.TYPE_CLASS_TEXT);
-                repasswordEditText.setTransformationMethod(null);
-            } else {
-                // Ẩn password
-                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                repasswordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                repasswordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            }
-        });
-
         String pass = passwordEditText.getText().toString();
 
         agree.setOnClickListener(view -> {
             Intent intent = getIntent();
             String phone = intent.getStringExtra("phone");
-            Toast.makeText(this, "PHONE"+phone, Toast.LENGTH_SHORT).show();
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference databaseReference = database.getReference("user").child(phone).child("pass");
             databaseReference.setValue(pass);
@@ -58,13 +62,10 @@ public class ChangePass extends AppCompatActivity {
             startActivity(intent1);
             finish();
 
+
+
+
+
         });
-
-}
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
     }
 }

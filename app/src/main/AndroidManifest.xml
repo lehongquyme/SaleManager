@@ -19,9 +19,6 @@
             android:name=".UpdateSanPham"
             android:exported="false" />
         <activity
-            android:name=".AddSanPham"
-            android:exported="false" />
-        <activity
             android:name=".ChangePass"
             android:exported="false" />
         <activity

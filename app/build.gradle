@@ -43,6 +43,7 @@ dependencies {//firebase auth
     implementation 'me.relex:circleindicator:2.1.6'
 //base64 sang ảnh
     implementation 'com.github.bumptech.glide:glide:4.15.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'

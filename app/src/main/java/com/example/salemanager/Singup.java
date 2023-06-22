@@ -40,7 +40,7 @@ public class Singup extends AppCompatActivity {
     ImageView imageView,img_rule;
     private Uri mImageUri;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance("https://appsalemanager-ee563-default-rtdb.asia-southeast1.firebasedatabase.app/");
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://salemanager-2000f-default-rtdb.firebaseio.com/");
     DatabaseReference myRef = database.getReference("user");
     @Override
     protected void onCreate(Bundle savedInstanceState) {

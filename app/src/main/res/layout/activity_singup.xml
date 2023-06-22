@@ -197,7 +197,6 @@ android:layout_gravity="center"
             android:id="@+id/tv_rules"
             android:gravity="center"
             android:visibility="gone"
-            android:background="@color/white"
             android:text="@string/longtext"
             android:layout_marginHorizontal="10dp"
             />

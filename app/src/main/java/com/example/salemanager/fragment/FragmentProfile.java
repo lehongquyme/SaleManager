@@ -73,7 +73,7 @@ TextView txtName,txtPhone,txtEmail;
 
 
 
-        reference.child("0334325232").addValueEventListener(new ValueEventListener() {
+        reference.child("2222").addValueEventListener(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -141,7 +141,7 @@ TextView txtName,txtPhone,txtEmail;
     private void Read() {
 
 
-        reference.child("0334325232").addValueEventListener(new ValueEventListener() {
+        reference.child("2222").addValueEventListener(new ValueEventListener() {
             @Override
             @SuppressLint("NewApi")
             public void onDataChange(@NonNull DataSnapshot snapshot) {

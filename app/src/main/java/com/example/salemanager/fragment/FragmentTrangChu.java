@@ -19,8 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.salemanager.R;
@@ -48,21 +50,20 @@ import model.SlideShowBanner;
 
 public class FragmentTrangChu extends Fragment {
     String img;
-     RecyclerView recyclerView,recyclerView1;
-     FirebaseRecyclerAdapter adapter,adapter1;
-    ArrayList<ObjectSP> list;
+    RecyclerView recyclerView, recyclerView1;
+
+    ArrayList<ObjectSP> dataList = new ArrayList<ObjectSP>();
+    ArrayList<ObjectSP> dataList1 = new ArrayList<ObjectSP>();
+
+
     SearchView searchView;
-    Button btnmenu;
-    FrameLayout frameLayout;
-    Fragment fragment;
-    private AddSp fragmentAddSp;
-    private AddKH fragmentAddKH;
-    private AddHD fragmentAddHD;
-    FirebaseDatabase database = FirebaseDatabase.getInstance("https://salemanager-2000f-default-rtdb.firebaseio.com/");
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("comnication").child("product");
     DatabaseReference reference1 = database.getReference("comnication").child("product");
     private ViewPager2 mViewPager2; // Khai bao doi tuong viewpager 2
     private CircleIndicator3 mCircleIndicator3; // khai bao doi tuong circle indicator 3
+    ImageButton acer,asus,dell,think,mac,hp,lenovo,msi;
     private List<SlideShowBanner> mslidSlideShowBanners; // khai bao 1 doi tuong list slideshow
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private Runnable mrunRunnable = new Runnable() {
@@ -79,7 +80,6 @@ public class FragmentTrangChu extends Fragment {
     };
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,17 +89,50 @@ public class FragmentTrangChu extends Fragment {
         recyclerView1 = view.findViewById(R.id.rcv_spMoi);
         mViewPager2 = view.findViewById(R.id.viewpager_2);// anh xa viewpager 2
         mCircleIndicator3 = view.findViewById(R.id.circle_indicator_3);
+        acer = view.findViewById(R.id.btnacer);
+        asus = view.findViewById(R.id.btnasus);
+        dell = view.findViewById(R.id.btndell);
+        think = view.findViewById(R.id.btnthink);
+        mac = view.findViewById(R.id.btnmac);
+        hp = view.findViewById(R.id.btnhp);
+        lenovo = view.findViewById(R.id.btnlenovo);
+        msi = view.findViewById(R.id.btnmsi);
+
+        acer.setOnClickListener(view1 -> {
+
+        });
+        asus.setOnClickListener(view1 -> {
+
+        });
+        dell.setOnClickListener(view1 -> {
+
+        });
+        think.setOnClickListener(view1 -> {
+
+        });
+        mac.setOnClickListener(view1 -> {
+
+        });
+        hp.setOnClickListener(view1 -> {
+
+        });
+        lenovo.setOnClickListener(view1 -> {
+
+        });
+        msi.setOnClickListener(view1 -> {
+
+        });
 
         searchView = view.findViewById(R.id.search_View);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+
         GridLayoutManager layoutManager1 = new GridLayoutManager(getContext(), 2);
         recyclerView1.setLayoutManager(layoutManager1);
+
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView1.addItemDecoration(dividerItemDecoration);
-        list = new ArrayList<ObjectSP>();
 
         mslidSlideShowBanners = getListSiSlideShowBanners(); // gan doi tuong list slideshow vao ham add list slideshow
         if (searchView != null) {
@@ -117,44 +150,43 @@ public class FragmentTrangChu extends Fragment {
                 }
             });
         }
-reference.addValueEventListener(new ValueEventListener() {
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snap)  {
-        ArrayList<ObjectSP> dataList = new ArrayList<>();
-        for(DataSnapshot snapshot : snap.getChildren()) {
-            ObjectSP data = snapshot.getValue(ObjectSP.class);
-            dataList.add(data);
-        }
-        RecycleAdapterTrangChu adapter = new RecycleAdapterTrangChu(dataList);
-        recyclerView.setAdapter(adapter);
-    }
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snap) {
+                for (DataSnapshot snapshot : snap.getChildren()) {
+                    ObjectSP data = snapshot.getValue(ObjectSP.class);
+                    dataList.add(data);
 
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
+                }
+                RecycleAdapterTrangChu adapter = new RecycleAdapterTrangChu(dataList);
+                recyclerView.setAdapter(adapter);
 
-    }
-});
-        Query query = reference1.orderByChild("giaTienSanPham");
-query.addValueEventListener(new ValueEventListener() {
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snap)  {
-        ArrayList<ObjectSP> dataList = new ArrayList<>();
-        for(DataSnapshot snapshot : snap.getChildren()) {
-            ObjectSP data = snapshot.getValue(ObjectSP.class);
-            if (data.getTinhtrang()=="Mới")
-            dataList.add(data);
-        }
-        RecycleAdapterTrangChu adapter = new RecycleAdapterTrangChu(dataList);
-        recyclerView1.setAdapter(adapter);
-    }
+            }
 
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-    }
-});
+            }
+        });
+
+        reference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snap) {
+                for (DataSnapshot snapshot : snap.getChildren()) {
+                    ObjectSP data = snapshot.getValue(ObjectSP.class);
+                        dataList1.add(data);
 
 
+                }
+                RecycleAdapterTrangChu adapter = new RecycleAdapterTrangChu(dataList1);
+                recyclerView1.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         int spanCount = 2; // số cột trong Gridview
@@ -175,9 +207,6 @@ query.addValueEventListener(new ValueEventListener() {
 
             }
         });
-        fragmentAddSp = new AddSp();
-        fragmentAddKH = new AddKH();
-        fragmentAddHD = new AddHD();
 
 
         // Hiển thị fragment A mặc định khi mở ứng dụng
@@ -192,6 +221,7 @@ query.addValueEventListener(new ValueEventListener() {
 
 
     }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -208,15 +238,17 @@ query.addValueEventListener(new ValueEventListener() {
             Glide.with(this).load(decodedByte).into(imageView);
         }
     }
+
     private void seach(String str) {
+
         ArrayList<ObjectSP> mylist = new ArrayList<>();
-        for (ObjectSP nt : list) {
+        for (ObjectSP nt : mylist) {
             if (nt.getNameSp().toLowerCase().contains(str.toLowerCase())) {
                 mylist.add(nt);
             }
         }
         RecycleAdapterTrangChu myAdapter = new RecycleAdapterTrangChu(mylist);
-        recyclerView.setAdapter(myAdapter);
+        recyclerView1.setAdapter(myAdapter);
     }
 
     private List<SlideShowBanner> getListSiSlideShowBanners() {
