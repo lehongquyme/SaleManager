@@ -1,5 +1,6 @@
 package com.example.salemanager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.salemanager.fragment.FragmentHoaDon;
 import com.example.salemanager.fragment.FragmentThongKe;
 import com.example.salemanager.fragment.FragmentTrangChu;
+import com.example.salemanager.fragment.objectfragment.ObjectSP;
 import com.example.salemanager.fragment.objectfragment.ObjectUser;
 import com.example.salemanager.fragment.FragmentProfile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -112,11 +114,14 @@ public class Home extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("user");
+
+
         reference.child(phone).addValueEventListener(new ValueEventListener() {
             @Override
             @SuppressLint("NewApi")
             public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
                 ObjectUser infor = snapshot.getValue(ObjectUser.class);
+
 //                emailUser.setText(infor.getGmail());
 //                nameUser.setText(infor.getFullname());
 //                phoneUser.setText(infor.getPhone());

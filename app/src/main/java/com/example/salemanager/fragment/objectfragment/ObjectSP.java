@@ -4,79 +4,79 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ObjectSP {
-private  int cpu,ram,rom,price;
-    private String imgSp, nameSp, maSp,tinhtrang,trangthai;
+private  int cpuSanPham,ramSanPham,romSanPham,giaTienSanPham;
+    private String image, tenSanPham, maSanPham,tinhtrang,trangthai;
 
 
     public ObjectSP() {
     }
 
-    public ObjectSP(int cpu, int ram, int rom, int price, String imgSp, String nameSp, String maSp, String tinhtrang, String trangthai) {
-        this.cpu = cpu;
-        this.ram = ram;
-        this.rom = rom;
-        this.price = price;
-        this.imgSp = imgSp;
-        this.nameSp = nameSp;
-        this.maSp = maSp;
+    public ObjectSP(int cpuSanPham, int ramSanPham, int romSanPham, int giaTienSanPham, String image, String tenSanPham, String maSanPham, String tinhtrang, String trangthai) {
+        this.cpuSanPham = cpuSanPham;
+        this.ramSanPham = ramSanPham;
+        this.romSanPham = romSanPham;
+        this.giaTienSanPham = giaTienSanPham;
+        this.image = image;
+        this.tenSanPham = tenSanPham;
+        this.maSanPham = maSanPham;
         this.tinhtrang = tinhtrang;
         this.trangthai = trangthai;
     }
 
-    public int getCpu() {
-        return cpu;
+    public int getCpuSanPham() {
+        return cpuSanPham;
     }
 
-    public void setCpu(int cpu) {
-        this.cpu = cpu;
+    public void setCpuSanPham(int cpuSanPham) {
+        this.cpuSanPham = cpuSanPham;
     }
 
-    public int getRam() {
-        return ram;
+    public int getRamSanPham() {
+        return ramSanPham;
     }
 
-    public void setRam(int ram) {
-        this.ram = ram;
+    public void setRamSanPham(int ramSanPham) {
+        this.ramSanPham = ramSanPham;
     }
 
-    public int getRom() {
-        return rom;
+    public int getRomSanPham() {
+        return romSanPham;
     }
 
-    public void setRom(int rom) {
-        this.rom = rom;
+    public void setRomSanPham(int romSanPham) {
+        this.romSanPham = romSanPham;
     }
 
-    public int getPrice() {
-        return price;
+    public int getGiaTienSanPham() {
+        return giaTienSanPham;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setGiaTienSanPham(int giaTienSanPham) {
+        this.giaTienSanPham = giaTienSanPham;
     }
 
-    public String getImgSp() {
-        return imgSp;
+    public String getImage() {
+        return image;
     }
 
-    public void setImgSp(String imgSp) {
-        this.imgSp = imgSp;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getNameSp() {
-        return nameSp;
+    public String getTenSanPham() {
+        return tenSanPham;
     }
 
-    public void setNameSp(String nameSp) {
-        this.nameSp = nameSp;
+    public void setTenSanPham(String tenSanPham) {
+        this.tenSanPham = tenSanPham;
     }
 
-    public String getMaSp() {
-        return maSp;
+    public String getMaSanPham() {
+        return maSanPham;
     }
 
-    public void setMaSp(String maSp) {
-        this.maSp = maSp;
+    public void setMaSanPham(String maSanPham) {
+        this.maSanPham = maSanPham;
     }
 
     public String getTinhtrang() {

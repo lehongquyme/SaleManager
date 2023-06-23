@@ -70,7 +70,7 @@
         android:id="@+id/dongia"
         android:layout_margin="5dp"
         android:drawableLeft="@drawable/ic_money"/>
-    <EditText
+    <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@drawable/boderedt"
@@ -78,5 +78,5 @@
         android:hint="Thành Tiền"
         android:id="@+id/thanhtien"
         android:layout_margin="5dp"
-        android:drawableLeft="@drawable/ic_money"/>
+        android:drawableLeft="@drawable/ic_baseline_price_check_24"/>
 </LinearLayout>

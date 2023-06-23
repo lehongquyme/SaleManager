@@ -52,8 +52,9 @@ import java.util.Base64;
 public class AddSp extends Fragment {
     private static final int PICK_IMAGE = 1;
     EditText maSp, tenSp, giaTien, cpu, ram, rom, hdh, manHinh, cardMh, dlp, tl, mt;
-    String maSanPham, tenSanPham,mtSanPham,cardMhSanPham;
-    int giaTienSanPham, cpuSanPham, ramSanPham, romSanPham, hdhSanPham, manHinhSanPham,dlpSanPham,tlSanPham;
+    String maSanPham, tenSanPham,mtSanPham,cardMhSanPham,hdhSanPham;
+    double manHinhSanPham,tlSanPham;
+    int giaTienSanPham, cpuSanPham, ramSanPham, romSanPham,dlpSanPham;
     String base64;
     ImageView imageView, imgSave;
     private Uri mImageUri;
@@ -213,11 +214,11 @@ public class AddSp extends Fragment {
         cpuSanPham = Integer.parseInt(cpu.getText().toString());
         ramSanPham = Integer.parseInt(ram.getText().toString());
         romSanPham = Integer.parseInt(rom.getText().toString());
-        hdhSanPham = Integer.parseInt(hdh.getText().toString());
-        manHinhSanPham = Integer.parseInt(manHinh.getText().toString());
+        hdhSanPham = hdh.getText().toString();
+        manHinhSanPham = Double.parseDouble(manHinh.getText().toString());
         cardMhSanPham = cardMh.getText().toString();
         dlpSanPham = Integer.parseInt(dlp.getText().toString());
-        tlSanPham = Integer.parseInt(tl.getText().toString());
+        tlSanPham = Double.parseDouble(tl.getText().toString());
         mtSanPham = mt.getText().toString();
 
 

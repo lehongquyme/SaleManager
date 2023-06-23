@@ -1,5 +1,6 @@
 package com.example.salemanager.fragment;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -152,6 +153,7 @@ public class FragmentTrangChu extends Fragment {
         }
         reference.addValueEventListener(new ValueEventListener() {
             @Override
+            @SuppressLint("NewApi")
             public void onDataChange(@NonNull DataSnapshot snap) {
                 for (DataSnapshot snapshot : snap.getChildren()) {
                     ObjectSP data = snapshot.getValue(ObjectSP.class);
@@ -171,10 +173,12 @@ public class FragmentTrangChu extends Fragment {
 
         reference1.addValueEventListener(new ValueEventListener() {
             @Override
+            @SuppressLint("NewApi")
             public void onDataChange(@NonNull DataSnapshot snap) {
                 for (DataSnapshot snapshot : snap.getChildren()) {
                     ObjectSP data = snapshot.getValue(ObjectSP.class);
-                        dataList1.add(data);
+                    if (data.getTinhtrang().length()==3){
+                        dataList1.add(data);}
 
 
                 }
@@ -243,7 +247,7 @@ public class FragmentTrangChu extends Fragment {
 
         ArrayList<ObjectSP> mylist = new ArrayList<>();
         for (ObjectSP nt : mylist) {
-            if (nt.getNameSp().toLowerCase().contains(str.toLowerCase())) {
+            if (nt.getTenSanPham().toLowerCase().contains(str.toLowerCase())) {
                 mylist.add(nt);
             }
         }
