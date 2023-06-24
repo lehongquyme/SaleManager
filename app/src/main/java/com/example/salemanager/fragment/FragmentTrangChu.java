@@ -61,7 +61,7 @@ public class FragmentTrangChu extends Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("comnication").child("product");
-    DatabaseReference reference1 = database.getReference("comnication").child("product");
+
     private ViewPager2 mViewPager2; // Khai bao doi tuong viewpager 2
     private CircleIndicator3 mCircleIndicator3; // khai bao doi tuong circle indicator 3
     ImageButton acer,asus,dell,think,mac,hp,lenovo,msi;
@@ -127,7 +127,6 @@ public class FragmentTrangChu extends Fragment {
         searchView = view.findViewById(R.id.search_View);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
-
         GridLayoutManager layoutManager1 = new GridLayoutManager(getContext(), 2);
         recyclerView1.setLayoutManager(layoutManager1);
 
@@ -171,7 +170,7 @@ public class FragmentTrangChu extends Fragment {
             }
         });
 
-        reference1.addValueEventListener(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             @SuppressLint("NewApi")
             public void onDataChange(@NonNull DataSnapshot snap) {

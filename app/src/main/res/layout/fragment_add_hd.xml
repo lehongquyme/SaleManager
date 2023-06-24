@@ -6,7 +6,7 @@
     android:background="#F9F4E3"
     android:id="@+id/fragmentHD"
     android:layout_height="match_parent"
-    tools:context=".fragment.add.AddKH">
+    tools:context=".fragment.add.AddHD">
 
     <LinearLayout
         android:background="#DBD314"
@@ -16,11 +16,13 @@
         android:orientation="horizontal">
         <ImageButton
             android:layout_margin="5dp"
+            android:id="@+id/btnrefreshHD"
             android:src="@drawable/ic_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <ImageButton
             android:layout_margin="5dp"
+            android:id="@+id/btnsaveHD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_save" />
@@ -35,6 +37,7 @@
         android:layout_margin="5dp"
         android:drawableLeft="@drawable/ic_name"/>
     <EditText
+        android:inputType="date"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@drawable/boderedt"
@@ -54,6 +57,7 @@
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:inputType="number"
         android:background="@drawable/boderedt"
         android:padding="10dp"
         android:id="@+id/soluong"
@@ -66,6 +70,7 @@
         android:layout_width="match_parent"
         android:background="@drawable/boderedt"
         android:padding="10dp"
+        android:inputType="number"
         android:hint="Đơn Giá"
         android:id="@+id/dongia"
         android:layout_margin="5dp"

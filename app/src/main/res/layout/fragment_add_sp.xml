@@ -7,7 +7,7 @@
     android:scrollbars="vertical"
     android:id="@+id/fragment_add_sp"
     android:layout_height="match_parent"
-    tools:context=".AddSanPham">
+    tools:context=".fragment.add.AddSp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -32,7 +32,10 @@ android {
     }
 }
 
-dependencies {//firebase auth
+dependencies {
+// map
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+//firebase auth
     implementation 'com.firebaseui:firebase-ui-database:8.0.0'
 
     implementation 'com.google.firebase:firebase-auth-ktx'

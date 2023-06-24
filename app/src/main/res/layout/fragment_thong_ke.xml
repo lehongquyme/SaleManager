@@ -56,14 +56,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_marginVertical="5dp"
-                    android:text="hi" />
+                    android:text="2000" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_marginVertical="5dp"
-                    android:text="hi" />
+                    android:text="Doanh Thu" />
             </LinearLayout>
         </LinearLayout>
 
@@ -88,14 +88,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_marginVertical="5dp"
-                    android:text="hi" />
+                    android:text="2000" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="5dp"
                     android:gravity="center"
-                    android:text="hi" />
+                    android:text="Lợi Nhuận" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -141,14 +141,14 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_marginVertical="5dp"
-                        android:text="hi" />
+                        android:text="5" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_marginVertical="5dp"
-                        android:text="hi" />
+                        android:text="Số Hóa Đơn" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -163,19 +163,19 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_marginVertical="5dp"
-                        android:text="hi" />
+                        android:text="50" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5dp"
                         android:gravity="center"
-                        android:text="hi" />
+                        android:text="Số Lượng Xuất" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -183,16 +183,16 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_marginVertical="5dp"
-                        android:text="hi" />
+                        android:gravity="center"
+                        android:text="500000" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5dp"
                         android:gravity="center"
-                        android:text="hi" />
+                        android:text="Tổng Tiền Nhập" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -241,14 +241,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5dp"
                         android:gravity="center"
-                        android:text="hi" />
+                        android:text="5" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_marginVertical="5dp"
-                        android:text="hi" />
+                        android:text="Số Hóa Đơn" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -263,14 +263,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5dp"
                         android:gravity="center"
-                        android:text="hi" />
+                        android:text="50" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5dp"
                         android:gravity="center"
-                        android:text="hi" />
+                        android:text="Số Lượng Xuất" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -285,14 +285,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5dp"
                         android:gravity="center"
-                        android:text="hi" />
+                        android:text="500000" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5dp"
                         android:gravity="center"
-                        android:text="hi" />
+                        android:text="Tổng Tiền Xuất" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -334,7 +334,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_marginVertical="5dp"
-                        android:text="hi" />
+                        android:text="Dell5577" />
 
                     <TextView
                         android:layout_weight="1"
@@ -342,7 +342,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_marginVertical="5dp"
-                        android:text="hi" />
+                        android:text="Số lượng : 13" />
 
 
             </LinearLayout>

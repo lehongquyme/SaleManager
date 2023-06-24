@@ -6,15 +6,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,11 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.salemanager.R;
 import com.example.salemanager.fragment.add.AddHD;
+import com.example.salemanager.fragment.objectfragment.ObjectHD;
+import com.example.salemanager.fragment.objectfragment.ObjectSP;
 import com.example.salemanager.fragment.objectfragment.ObjectUser;
+import com.example.salemanager.fragment.recycfragment.RecyccleAdapterHD;
+import com.example.salemanager.fragment.recycfragment.RecycleAdapterTrangChu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,20 +39,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
 
 public class FragmentHoaDon extends Fragment {
 
-    ImageView imageUser;
-    FloatingActionButton btnAddHD;
 
+    RecyclerView recyclerView;
+
+    ArrayList<ObjectHD> dataList = new ArrayList<ObjectHD>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
-
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference reference = database.getReference("comnication").child("bill");
     public FragmentHoaDon() {
         // Required empty public constructor
     }
@@ -65,13 +73,30 @@ public class FragmentHoaDon extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hoa_don, container, false);
-        btnAddHD = view.findViewById(R.id.btnaddHoaDon);
-        btnAddHD.setOnClickListener(view1 -> {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.add(R.id.linearHD, new AddHD());
-            transaction.addToBackStack("myFragmentStack");
-            transaction.commit();
+        recyclerView = view.findViewById(R.id.recyc_hoadon);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            @SuppressLint("NewApi")
+            public void onDataChange(@androidx.annotation.NonNull DataSnapshot snap) {
+                for (DataSnapshot snapshot : snap.getChildren()) {
+                    ObjectHD data = snapshot.getValue(ObjectHD.class);
+                    dataList.add(data);
+
+                }
+                RecyccleAdapterHD adapter = new RecyccleAdapterHD(dataList);
+                recyclerView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
         return view;
     }
@@ -79,16 +104,6 @@ public class FragmentHoaDon extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("comnication");
-        databaseRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Handle error
-            }
-        });}
+     }
 
 }
